@@ -31,11 +31,22 @@
 </template>
 
 <script>
+import searchListed from './lib/searchListed.js'
+
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  mounted () {
+    searchListed("High");
+  },
+  methods: {
+    test() {
+      searchListed("High");
+    }
+  },
 }
 </script>
 
