@@ -1,0 +1,249 @@
+{
+    "result": "SUCCESS",
+    "createDate": 1678529937037,
+    "localHomepages": [
+      {
+        "identifier": 222518,
+        "name": "Your local expert in AB10",
+        "updateDate": 1678529937034,
+        "homepageImageUrl": "https://media.rightmove.co.uk/230k/229106/bs_25077464_2369543_38_1604403448868_000_ban_max_640x170.jpg",
+        "mobileApplicationPage": "UNKNOWN",
+        "apiParametersForPageData": {},
+        "originalDestinationUrl": "https://www.remax-aberdeen.net/valuation",
+        "rightmoveAd": false,
+        "isForRequestedLocation": true,
+        "channel": "buy",
+        "transactionTypeId": 1
+      }
+    ],
+    "searchableLocation": {
+      "identifier": "OUTCODE^1",
+      "name": "AB10",
+      "centreLatitude": 57.131627263213716,
+      "centreLongitude": -2.1248694078097254
+    },
+    "properties": [
+      {
+        "identifier": 86069259,
+        "visible": true,
+        "price": 35000,
+        "priceQualifier": "Guide Price*",
+        "shouldShowPrice": true,
+        "bedrooms": 1,
+        "address": " 284, Hardgate, Southmost 2FF and Coal Cellar, Aberdeen, AB106AD",
+        "latitude": 57.13415,
+        "longitude": -2.1148,
+        "showMap": true,
+        "propertyType": "flat",
+        "development": false,
+        "commercial": false,
+        "updateDate": 1678355228000,
+        "autoEmailReasonType": "new",
+        "transactionTypeId": 1,
+        "sortDate": 1676371207000,
+        "photoThumbnailUrl": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_00_0000_max_200x138.jpeg",
+        "photoLargeThumbnailUrl": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_00_0000_max_656x437.jpeg",
+        "photoCount": 7,
+        "floorplanCount": 0,
+        "branch": {
+          "identifier": 43917,
+          "name": "Glasgow",
+          "brandName": "Future Property Auctions",
+          "development": false,
+          "updateDate": 1668506196000,
+          "branchLogo": "https://media.rightmove.co.uk/dir//company/clogo_13344_0000.jpg",
+          "brandPlusResale": true,
+          "brandPlusLettings": false,
+          "hideReducedPropsFlag": false,
+          "address": "241 Kilmarnock Road\r\nGlasgow\r\nG41 3JF",
+          "telephoneNumbers": [
+            {
+              "identifier": null,
+              "label": null,
+              "number": "0141 632 6599",
+              "main": null
+            }
+          ],
+          "contactTelephoneNumber": "0141 632 6599"
+        },
+        "exactLocationAvailable": false,
+        "status": null,
+        "dateShortlisted": null,
+        "premiumDisplay": false,
+        "premiumDisplayStickerName": "",
+        "premiumDisplayStyle": 26,
+        "photoThumbnail2Url": null,
+        "photoThumbnail3Url": null,
+        "photoThumbnail4Url": null,
+        "orderFromServer": 0,
+        "showStreetView": true,
+        "overseas": false,
+        "letFurnishType": null,
+        "summary": "** Timed Online Auction - 23 March 2023 ** Traditional Tenement Flat in popular residential area of Ferryhill, Aberdeen City Centre. Rental Potential Â£475PCM - Â£5,700 per year. Vacant Possession Property. RICS HOME REPORT - Â£55,000..",
+        "showLettingFeesMessage": false,
+        "saved": false,
+        "hidden": false,
+        "displayPrices": [
+          {
+            "displayPrice": "£35,000",
+            "displayPriceQualifier": "Guide Price"
+          }
+        ],
+        "onlineViewing": false,
+        "buildToRent": false,
+        "thumbnailPhotos": [
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_00_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_01_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_02_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_03_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_04_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_05_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/44k/43917/86069259/43917_11356867_IMG_06_0000_max_656x437.jpeg"
+          }
+        ],
+        "keywords": []
+      },
+      {
+        "identifier": 119649299,
+        "visible": true,
+        "price": 49995,
+        "priceQualifier": "Offers Over",
+        "shouldShowPrice": true,
+        "bedrooms": 1,
+        "address": "1st Floor Left, 194 Holburn Street, Aberdeen, AB10 6DA",
+        "latitude": 57.13875,
+        "longitude": -2.114306,
+        "showMap": true,
+        "propertyType": "flat",
+        "development": false,
+        "commercial": false,
+        "updateDate": 1676480958000,
+        "autoEmailReasonType": "price_reduced",
+        "transactionTypeId": 1,
+        "sortDate": 1673275604000,
+        "photoThumbnailUrl": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_00_0000_max_200x138.jpeg",
+        "photoLargeThumbnailUrl": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_00_0000_max_656x437.jpeg",
+        "photoCount": 14,
+        "floorplanCount": 1,
+        "branch": {
+          "identifier": 118192,
+          "name": "Aberdeen",
+          "brandName": "McEwan Fraser Legal",
+          "development": false,
+          "updateDate": 1676480958000,
+          "branchLogo": "https://media.rightmove.co.uk/dir//119k/118192/branch_rmchoice_logo_118192_0002.png",
+          "brandPlusResale": true,
+          "brandPlusLettings": false,
+          "hideReducedPropsFlag": false,
+          "address": "38 Holburn Street,\r\nAberdeen,\r\nAB10 6BT",
+          "telephoneNumbers": [
+            {
+              "identifier": null,
+              "label": null,
+              "number": "01224 007451",
+              "main": null
+            }
+          ],
+          "contactTelephoneNumber": "01224 007451"
+        },
+        "exactLocationAvailable": false,
+        "status": null,
+        "dateShortlisted": null,
+        "premiumDisplay": false,
+        "premiumDisplayStickerName": "",
+        "premiumDisplayStyle": 26,
+        "photoThumbnail2Url": null,
+        "photoThumbnail3Url": null,
+        "photoThumbnail4Url": null,
+        "orderFromServer": 1,
+        "showStreetView": true,
+        "overseas": false,
+        "letFurnishType": null,
+        "summary": "easy walking distance of Aberdeen City Centre, the property is in good condition, vacant and available for immediate occupation",
+        "showLettingFeesMessage": false,
+        "saved": false,
+        "hidden": false,
+        "displayPrices": [
+          {
+            "displayPrice": "£49,995",
+            "displayPriceQualifier": "Offers Over"
+          }
+        ],
+        "onlineViewing": false,
+        "buildToRent": false,
+        "thumbnailPhotos": [
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_00_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_10_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_11_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_12_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_08_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_09_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_04_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_05_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_01_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_02_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_03_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_13_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_06_0000_max_656x437.jpeg"
+          },
+          {
+            "url": "https://media.rightmove.co.uk/dir/119k/118192/119649299/118192_MFL7219336_IMG_07_0000_max_656x437.jpeg"
+          }
+        ],
+        "keywords": []
+      }
+    ],
+    "radius": 0,
+    "eastLongitude": -2.093779676834112,
+    "westLongitude": -2.1521447195440997,
+    "northLatitude": 57.151066684446135,
+    "southLatitude": 57.11598458332243,
+    "numReturnedResults": 2,
+    "totalAvailableResults": 31,
+    "transactionTypeId": 1,
+    "cacheTimeout": 15,
+    "localHomepageLocation": "OUTCODE^1_SALE",
+    "featuredProperties": [],
+    "isFeaturedAgentSwitchOn": true,
+    "retrieveSavedSearchByFiltersResult": {
+      "savedSearches": []
+    }
+  }
