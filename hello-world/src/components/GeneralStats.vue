@@ -7,20 +7,20 @@
       <div class="build-header">
         <div class="card-col-sml header"></div>
         <div class="card-col-lg header">Category</div>
+        <div class="card-col-med header">Result</div>
         <div class="card-col-med header">Description</div>
-        <div class="card-col-med header">Improvements</div>
         <div class="card-col-med header">Risk Impact</div>
       </div>
       <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
-        <div class="card-col-lg name">Company Age</div>
-        <div class="card-col-med health"><span data-tooltip="The Company is more than 3 years old" data-tooltip-options="light"><span class="build-health" data-build-health="great"></span></span></div>
-        <div class="card-col-med duration">Longer incorporation time</div>
+        <div class="card-col-lg name">Built Age</div>
+        <div class="card-col-med health">{{ buildingAge }}</div>
+        <div class="card-col-med duration"></div>
         <div class="card-col-med current-build">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
       </div>
       <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" data-build-status="pending"></span></div>
-        <div class="card-col-lg name">Company Activity</div>
+        <div class="card-col-lg name">Flood Risk</div>
         <div class="card-col-med health">Company has a lot of major changes</div>
         <div class="card-col-med duration">Less major filings at company house</div>
         <div class="card-col-med">
@@ -28,21 +28,36 @@
         </div>
       </div>
        <div class="build-container">
-        <div class="card-col-sml status"><span class="build-status" data-build-status="failed"></span></div>
-        <div class="card-col-lg name">2.1.13</div>
-        <div class="card-col-med health"><span data-tooltip="The last 5 builds failed." data-tooltip-options="light"><span class="build-health" data-build-health="terrible"></span></span></div>
-        <div class="card-col-med duration">12 mins</div>
-        <div class="card-col-med current-build">
-          <div class="status-bar"><span class="status-value" style="width: 11.7234%;"></span></div>
-        </div> 
+        <div class="card-col-sml status"><span class="build-status" :data-build-status="listedStatus"></span></div>
+        <div class="card-col-lg name">Listed Building</div>
+        <div class="card-col-med health"><i v-if="listed.isListed" class="fa fa-check" style="color: #ed4949" aria-hidden="true"></i><p v-else>Unlisted Building</p></div>
+        <div class="card-col-med duration">{{listedGrade}}</div>
+        <div class="card-col-med current-build">{{listedLink}}</div> 
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex'
 
+export default {
+  computed: {
+    ...mapState([
+      'address',
+      'buildingAge',
+      'listed'
+    ]),
+    listedStatus(){
+      return this.listed.isListed ? "success" : "failed";
+    },
+    listedGrade(){
+      return this.listed.isListed ? this.listed.grade : "";
+    },
+    listedLink(){
+      return this.listed.isListed ? this.listed.link : "";
+    },
+  }
 }
 </script>
 

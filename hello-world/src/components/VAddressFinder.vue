@@ -19,18 +19,18 @@
       </select>
     </div>
     <div class="row">
-      <button class="btn btn-primary">Investigate</button>
+      <button class="btn btn-primary" @click="investigate">Investigate</button>
     </div>
     <div class="row">
-      <result-page></result-page>
+      <result-page v-if= "showResultsPage"></result-page>
     </div>
   </div>
 </template>
 
 <script>
-import searchListed from './lib/searchListed.js'
 import axios from 'axios';
 import ResultPage from './ResultPage.vue'
+import { mapState } from 'vuex'
 
 
 
@@ -44,6 +44,11 @@ export default {
       selectedAddress: '',
       selectedAddressJSON: {},
     };
+  },
+  computed: {
+    ...mapState([
+      'showResultsPage',
+    ]),
   },
   methods: {
     findAddresses() {
@@ -60,11 +65,14 @@ export default {
       this.$store.commit('setAddress', payload);
     },
     investigate(){
-      const address = this.$store.address
-      if(address != ""){
-        const result = searchListed(this.$store.address);
-        console.log(result);
+      if(this.$store.state["address"] != null){
+
+        console.log("investigate")
+        this.$store.dispatch("fetchProp")
+      }else{
+        alert("Pick Something")
       }
+
     }
   },
 };
