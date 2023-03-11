@@ -24,18 +24,22 @@
     <div class="row">
       <result-page v-if= "showResultsPage"></result-page>
     </div>
+    <div class="row">
+      <property-card v-if="showResultsPage"></property-card>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import ResultPage from './ResultPage.vue'
+import PropertyCard from './PropertyCard.vue';
 import { mapState } from 'vuex'
 
 
 
 export default {
-  components: { ResultPage },
+  components: { ResultPage, PropertyCard },
   data() {
     return {
       postcode: '',
