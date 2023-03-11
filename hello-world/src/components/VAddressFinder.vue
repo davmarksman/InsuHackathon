@@ -38,7 +38,10 @@ export default {
       }
     },
     setSelected(event, index){
-      this.selectedAddressJSON = this.addresses[index]
+      const payload = {
+          address: this.addresses[index]}
+        ;
+      this.$store.commit('setAddress', payload)
     }
 
   },
