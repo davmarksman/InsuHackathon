@@ -18,6 +18,10 @@
         </option>
       </select>
     </div>
+    <div>
+      <label for="company-number">Company Reference Number</label>
+      <input type="text" v-model="companyRegistrationNumber">
+    </div>
     <div class="row">
       <button class="btn btn-primary" @click="investigate">Investigate</button>
     </div>
@@ -27,6 +31,10 @@
     <div class="row">
       <property-card v-if="showResultsPage"></property-card>
     </div>
+    <div class="row">
+      <company-card v-if="showResultsPage"></company-card>
+    </div>
+
   </div>
 </template>
 
@@ -35,11 +43,12 @@ import axios from 'axios';
 import ResultPage from './ResultPage.vue'
 import PropertyCard from './PropertyCard.vue';
 import { mapState } from 'vuex'
+import CompanyCard from './CompanyCard.vue';
 
 
 
 export default {
-  components: { ResultPage, PropertyCard },
+  components: { ResultPage, PropertyCard, CompanyCard },
   data() {
     return {
       postcode: '',
@@ -47,6 +56,7 @@ export default {
       apikey: 'PCWYL-C4W5T-9VWP5-NAPNY',
       selectedAddress: '',
       selectedAddressJSON: {},
+      companyRegistrationNumber:''
     };
   },
   computed: {
@@ -69,13 +79,15 @@ export default {
       this.$store.commit('setAddress', payload);
     },
     investigate(){
-      if(this.$store.state["address"] != null){
+      if(this.$store.state["address"] != null && this.companyRegistrationNumber !=null){
 
         console.log("investigate")
         this.$store.dispatch("fetchProp")
+        this.$store.dispatch("fetchCompany", this.companyRegistrationNumber)
       }else{
         alert("Pick Something")
       }
+
 
     }
   },

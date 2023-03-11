@@ -1,0 +1,68 @@
+{
+    "registered_office_address": {
+        "address_line_1": "PO BOX 41",
+        "postal_code": "PO6 3AU",
+        "address_line_2": "North Harbour",
+        "region": "Hampshire",
+        "locality": "Portsmouth"
+    },
+    "accounts": {
+        "next_accounts": {
+            "period_end_on": "2023-03-31",
+            "due_on": "2023-12-31",
+            "period_start_on": "2022-04-01",
+            "overdue": false
+        },
+        "accounting_reference_date": {
+            "month": "03",
+            "day": "31"
+        },
+        "next_made_up_to": "2023-03-31",
+        "last_accounts": {
+            "period_start_on": "2021-04-01",
+            "type": "dormant",
+            "period_end_on": "2022-03-31",
+            "made_up_to": "2022-03-31"
+        },
+        "next_due": "2023-12-31",
+        "overdue": false
+    },
+    "sic_codes": [
+        "74990"
+    ],
+    "has_been_liquidated": false,
+    "undeliverable_registered_office_address": false,
+    "jurisdiction": "england-wales",
+    "company_name": "IBM LIMITED",
+    "company_number": "01503908",
+    "last_full_members_list_date": "2016-01-24",
+    "type": "ltd",
+    "date_of_creation": "1980-06-25",
+    "company_status": "active",
+    "has_insolvency_history": false,
+    "etag": "fcbffe0a005c27ef0ed6b4e21409bba9eeca2d7c",
+    "has_charges": true,
+    "previous_company_names": [
+        {
+            "ceased_on": "2000-07-06",
+            "name": "LS3 LIMITED",
+            "effective_from": "1980-06-25"
+        }
+    ],
+    "confirmation_statement": {
+        "overdue": false,
+        "last_made_up_to": "2023-01-24",
+        "next_due": "2024-02-07",
+        "next_made_up_to": "2024-01-24"
+    },
+    "links": {
+        "self": "/company/01503908",
+        "filing_history": "/company/01503908/filing-history",
+        "officers": "/company/01503908/officers",
+        "charges": "/company/01503908/charges",
+        "persons_with_significant_control": "/company/01503908/persons-with-significant-control"
+    },
+    "registered_office_is_in_dispute": false,
+    "has_super_secure_pscs": false,
+    "can_file": true
+}
