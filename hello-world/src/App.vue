@@ -1,17 +1,14 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-address-finder></v-address-finder>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VAddressFinder from './components/VAddressFinder.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    VAddressFinder
   }
 }
 </script>
