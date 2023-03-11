@@ -9,7 +9,8 @@ export default {
   name: 'App',
   components: {
     VAddressFinder
-  }
+  },
+
 }
 </script>
 

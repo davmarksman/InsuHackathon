@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex'
 import searchListed from './components/lib/searchListed.js'
+import json from './components/lib/property.json'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     address: null,
     buildingAge: 10,
     listed: { isListed: false},
-    floodData: null
+    propertyInfo: json.properties[0],
+    floodData: null,
   },
   mutations: {
     setAddress(state, payload){
