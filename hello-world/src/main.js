@@ -42,13 +42,13 @@ const store = new Vuex.Store({
   actions: {
     async fetchProp ({ commit }) {
       commit('searchListed')
-      commit('showResultsPage', true);
       let propData = await fetchRightMove();
       commit('setPropData', propData);
 
 
       let floodData = await fetchFlood(propData.latitude, propData.longitude);
       commit('setFloodData', floodData);
+      commit('showResultsPage', true);
     },
     async fetchCompany({commit}, payload){
       let companyData = await fetchCompanyData(payload);
@@ -70,7 +70,9 @@ async function fetchRightMove(){
   let response = await fetch("https://localhost:7167/api/Proxy/RightMove");
   let data = await response.json();
   console.log("PropertyData", data);
-  return data.properties[0];
+  var items = data.properties;
+  var item = items[Math.floor(Math.random()*items.length)];
+  return item;
 }
 
 
