@@ -12,9 +12,10 @@ export default function(searchTerm){
     };
   }else{
     return {
+      // result props are upper case
       isListed:true,
-      grade: result.grade,
-      link: result.link
+      grade: result.Grade,
+      link: result.Link
     };
   }
 }

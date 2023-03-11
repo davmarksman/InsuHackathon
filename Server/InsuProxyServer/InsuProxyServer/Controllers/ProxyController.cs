@@ -27,5 +27,29 @@ namespace InsuProxyServer.Controllers
                 return this.Content(jsonResponse, "application/json");
             }
         }
+
+
+
+        [HttpGet]
+        [Route("RightMove")]
+        public async Task<ActionResult> GetRightMove()
+        {
+            var listUrls= new List<string> {
+                $"https://api.rightmove.co.uk/api/sale/find?index=0&sortType=1&numberOfPropertiesRequested=2&locationIdentifier=POSTCODE%5E1149959&apiApplication=IPAD",
+$"https://api.rightmove.co.uk/api/sale/find?index=0&sortType=1&numberOfPropertiesRequested=2&locationIdentifier=OUTCODE%5E1&apiApplication=IPAD",
+            };
+
+            var req = listUrls[new Random().Next(0, listUrls.Count())];
+
+            //var req = $"https://www.rightmove.co.uk/api/search?locationIdentifier=POSTCODE%5E{postCode}&numberOfPropertiesPerPage=24&radius=0.5&sortType=2&index=0&includeSSTC=false&viewType=LIST&channel=BUY&areaSizeUnit=sqft&currencyCode=GBP&isFetching=false&viewport=";
+           // var req = $"https://api.rightmove.co.uk/api/sale/find?index=0&sortType=1&numberOfPropertiesRequested=2&locationIdentifier=OUTCODE%5E1&apiApplication=IPAD";
+            using (HttpResponseMessage response = await _httpClient.GetAsync(req))
+            {
+                //response.EnsureSuccessStatusCode();
+
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                return this.Content(jsonResponse, "application/json");
+            }
+        }
     }
 }

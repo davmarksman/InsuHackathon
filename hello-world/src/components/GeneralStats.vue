@@ -30,7 +30,10 @@
        <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" :data-build-status="listedStatus"></span></div>
         <div class="card-col-lg name">Listed Building</div>
-        <div class="card-col-med health"><i v-if="listed.isListed" class="fa fa-check" style="color: #ed4949" aria-hidden="true"></i><p v-else>Unlisted Building</p></div>
+        <div class="card-col-med health">
+          <div v-if="listed.isListed" >Listed<i class="fa fa-check" style="color: #ed4949" aria-hidden="true"></i></div>
+          <p v-else>Unlisted Building</p>
+          </div>
         <div class="card-col-med duration">{{listedGrade}}</div>
         <div class="card-col-med current-build">{{listedLink}}</div> 
       </div>
