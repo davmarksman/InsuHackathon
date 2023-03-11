@@ -11,7 +11,8 @@ const store = new Vuex.Store({
     showResultsPage: false,
     address: null,
     buildingAge: 10,
-    listed: { isListed: false}
+    listed: { isListed: false},
+    floodData: null
   },
   mutations: {
     setAddress(state, payload){
@@ -23,17 +24,29 @@ const store = new Vuex.Store({
     },
     showResultsPage(state, payload){
       state.showResultsPage = payload
-    }
+    },
+    setFloodData(state, payload){
+      state.floodData = payload
+    },
   }, 
   actions: {
-    fetchProp ({ commit }) {
+    async fetchProp ({ commit }) {
       commit('searchListed')
       commit('showResultsPage', true);
+      let floodData = await fetchFlood();
+      commit('setFloodData', floodData);
     }
   }
   
 
 })
+
+async function fetchFlood(){
+  let response = await fetch("https://localhost:7167/api/Proxy/Flood?Latitude=51.5136056&Longitude=-0.0520536");
+  let data = await response.json();
+  console.log(data);
+  return data;
+}
 
 new Vue({
   render: h => h(App),
