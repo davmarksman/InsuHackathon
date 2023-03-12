@@ -34,12 +34,6 @@
     <div class="row">
       <result-page v-if= "showResultsPage"></result-page>
     </div>
-    <div class="row">
-      <property-card v-if="showResultsPage"></property-card>
-    </div>
-    <div class="row">
-      <company-card v-if="showResultsPage"></company-card>
-    </div>
 
   </div>
 </template>
@@ -47,14 +41,12 @@
 <script>
 import axios from 'axios';
 import ResultPage from './ResultPage.vue'
-import PropertyCard from './PropertyCard.vue';
 import { mapState } from 'vuex'
-import CompanyCard from './CompanyCard.vue';
 
 
 
 export default {
-  components: { ResultPage, PropertyCard, CompanyCard },
+  components: { ResultPage },
   data() {
     return {
       postcode: '',

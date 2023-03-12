@@ -6,68 +6,121 @@
     <div class="card-body">
       <div class="build-header">
         <div class="card-col-sml header"></div>
-        <div class="card-col-lg header">Category</div>
-        <div class="card-col-med header">Result</div>
+        <div class="card-col-med header">Category</div>
+        <div class="card-col-lg header">Result</div>
         <div class="card-col-med header">Description</div>
         <div class="card-col-med header">Risk Impact</div>
+        <div class="card-col-med header">Source</div>
       </div>
       <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
-        <div class="card-col-lg name">Built Age</div>
-        <div class="card-col-med health">{{ buildingAge }}</div>
+        <div class="card-col-med name">Built Age</div>
+        <div class="card-col-lg health">{{ buildingAge }}</div>
         <div class="card-col-med duration"></div>
         <div class="card-col-med current-build">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+        <div class="card-col-med current-build">Paid source</div> 
       </div>
       <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" :data-build-status="floodDataStatus"></span></div>
-        <div class="card-col-lg name">Flood Risk</div>
-        <div class="card-col-med health">{{floodText}}
-        </div>
+        <div class="card-col-med name">Flood Risk</div>
+        <div class="card-col-lg health">{{floodText}} </div>
         <div class="card-col-med duration">{{floodDesc}}</div>
         <div class="card-col-med">
           <div class="status-bar"><span class="status-value" :style="floodBar"></span></div>
         </div>
+        <div class="card-col-med">checkmyfloodrisk.co.uk</div> 
       </div>
        <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" :data-build-status="listedStatus"></span></div>
-        <div class="card-col-lg name">Listed Building</div>
-        <div class="card-col-med health">
+        <div class="card-col-med name">Listed Building</div>
+        <div class="card-col-lg health">
           <div v-if="listed.isListed" >Listed<i class="fa fa-check" style="color: #ed4949" aria-hidden="true"></i></div>
           <p v-else>Unlisted Building</p>
           </div>
         <div class="card-col-med duration">{{listedGrade}}</div>
         <div class="card-col-med current-build">{{listedLink}}</div> 
+        <div class="card-col-med">Historic England</div> 
       </div>
       <div class="build-container">
-        <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
-        <div class="card-col-lg name">Company Age</div>
-        <div class="card-col-med health"><span data-tooltip="The Company is more than 3 years old" data-tooltip-options="light"><span class="build-health" data-build-health="great"></span></span></div>
-        <div class="card-col-med duration">Longer incorporation time</div>
-        <div class="card-col-med current-build">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+        <div class="card-col-sml status"><span class="build-status" :data-build-status="ageStatus"></span></div>
+        <div class="card-col-med name">Company Age</div>
+        <div class="card-col-lg health">{{this.company.date_of_creation}}</div>
+        <div class="card-col-med duration"><span class="build-health" :data-build-health="ageHealth"></span></div>
+        <div class="card-col-med current-build"></div>
+        <div class="card-col-med">Companies House</div> 
       </div>
       <div class="build-container">
         <div class="card-col-sml status"><span class="build-status" data-build-status="pending"></span></div>
-        <div class="card-col-lg name">Company Activity</div>
-        <div class="card-col-med health">Company has a lot of major changes</div>
+        <div class="card-col-med name">Company Activity</div>
+        <div class="card-col-lg health">Company has a lot of major changes</div>
         <div class="card-col-med duration">Less major filings at company house</div>
         <div class="card-col-med">
           <div class="status-bar"><span class="status-value" style="width: 60.993%;"></span></div>
         </div>
+          <div class="card-col-med">Companies House</div> 
+      </div>
+      <div class="build-container">
+        <div class="card-col-sml status"><span class="build-status" data-build-status="pending"></span></div>
+        <div class="card-col-med name">Company Address</div>
+        <div class="card-col-lg health">        <p class="pnospace"
+          v-for="(line, index) in company.registered_office_address"
+          v-bind:key="index"
+        >
+          {{ line }}
+        </p></div>
+        <div class="card-col-med duration"></div>
+        <div class="card-col-med">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+        <div class="card-col-med">Companies House</div> 
+      </div>
+      <div class="build-container">
+        <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
+        <div class="card-col-med name">Property Address</div>
+        <div class="card-col-lg health"> {{ address.summaryline }}</div>
+        <div class="card-col-med duration"></div>
+        <div class="card-col-med">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+        <div class="card-col-med">Right Move</div> 
+      </div>
+      <div class="build-container">
+        <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
+        <div class="card-col-med name">Pictures        </div>
+        <div class="card-col-lg health"> <carousel :per-page="1" :navigationEnabled="true"
+         :paginationEnabled="false">
+    <slide v-for="(image, index) in propertyInfo.thumbnailPhotos" :key="index">
+                <img class="car-image" :src="image.url" :alt="image.name" />
+    </slide>
+  </carousel></div>
+        <div class="card-col-med duration">        
+          Bedrooms: {{ propertyInfo.bedrooms }} |
+          Value: £{{ propertyInfo.price }} |  
+          Type: {{ propertyInfo.propertyType }}
+        </div>
+        <div class="card-col-med">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+        <div class="card-col-med">Right Move</div> 
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel';
+
 import { mapState } from 'vuex'
 
 export default {
+  components: { 
+    Carousel,
+    Slide
+  
+  
+  },
   computed: {
     ...mapState([
       'address',
       'buildingAge',
       'listed',
       'floodData',
+      'company',
+      'propertyInfo'
     ]),
     listedStatus(){
       return this.listed.isListed ? "success" : "failed";
@@ -136,6 +189,24 @@ export default {
       }
 
       return `High Risk Area ${this.floodData.High}m away`;
+    },
+    ageStatus(){
+      if(this.company.date_of_creation > new Date('2013-05-23')){
+          return "failed"
+      }else{
+        return "success"
+      }
+    }, 
+    ageHealth(){
+      if(this.company.date_of_creation > new Date('2018-05-23')){
+          return "terrible"
+      }else if(this.company.date_of_creation > new Date('2013-05-23')){
+          return "bad"
+      }else if(this.company.date_of_creation > new Date('2000-05-23')){
+          return "good"
+      }else{
+        return "great"
+      }
     }
   }
 }
@@ -148,7 +219,7 @@ export default {
 .card-container {
   box-shadow: 0 4px 10px rgba(50, 50, 50, 0.1);
   margin: 50px auto;
-  width: 700px;
+  width: 1000px;
 	color: #333;
   font-family: 'Roboto', sans-serif;
 }
@@ -264,7 +335,7 @@ export default {
   background: #eee;
   border-radius: 9px;
   height: 18px;
-  width: 100%;
+  width: 90%;
 }
 .status-bar .status-value {
   background: rebeccapurple;
@@ -285,13 +356,23 @@ export default {
 .card-col-med {
   float: left;
   min-height: 1px;
-  width: 20%;
+  width: 19%;
 }
 
 .card-col-lg {
   float: left;
   min-height: 1px;
-  width: 35%;
+  width: 27%;
 }
 
+.pnospace {
+    margin: 0;
+    padding: 0;
+}
+
+.car-image{
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+}
 </style>
