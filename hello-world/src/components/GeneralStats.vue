@@ -76,7 +76,10 @@
         <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
         <div class="card-col-med name">Property Address</div>
         <div class="card-col-lg health"> {{ address.summaryline }}</div>
-        <div class="card-col-med duration"></div>
+        <div class="card-col-med duration">        
+          Bedrooms: {{ propertyInfo.bedrooms }} |
+          Value: £{{ propertyInfo.price }} |  
+          Type: {{ propertyInfo.propertyType }}</div>
         <div class="card-col-med">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
         <div class="card-col-med">Right Move</div> 
       </div>
@@ -89,10 +92,7 @@
                 <img class="car-image" :src="image.url" :alt="image.name" />
     </slide>
   </carousel></div>
-        <div class="card-col-med duration">        
-          Bedrooms: {{ propertyInfo.bedrooms }} |
-          Value: £{{ propertyInfo.price }} |  
-          Type: {{ propertyInfo.propertyType }}
+        <div class="card-col-med duration">
         </div>
         <div class="card-col-med">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
         <div class="card-col-med">Right Move</div> 
@@ -356,13 +356,13 @@ export default {
 .card-col-med {
   float: left;
   min-height: 1px;
-  width: 19%;
+  width: 17%;
 }
 
 .card-col-lg {
   float: left;
   min-height: 1px;
-  width: 27%;
+  width: 25%;
 }
 
 .pnospace {
