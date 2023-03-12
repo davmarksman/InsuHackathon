@@ -84,7 +84,7 @@ export default {
       };
       this.$store.commit('setAddress', payload);
     },
-    investigate(){
+    async investigate(){
       if(this.$store.state["address"] != null && this.companyRegistrationNumber !=null){
 
         console.log("investigate")

@@ -19,12 +19,13 @@
         <div class="card-col-med current-build">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
       </div>
       <div class="build-container">
-        <div class="card-col-sml status"><span class="build-status" data-build-status="pending"></span></div>
+        <div class="card-col-sml status"><span class="build-status" :data-build-status="floodDataStatus"></span></div>
         <div class="card-col-lg name">Flood Risk</div>
-        <div class="card-col-med health">Company has a lot of major changes</div>
-        <div class="card-col-med duration">Less major filings at company house</div>
+        <div class="card-col-med health">{{floodText}}
+        </div>
+        <div class="card-col-med duration">{{floodDesc}}</div>
         <div class="card-col-med">
-          <div class="status-bar"><span class="status-value" style="width: 60.993%;"></span></div>
+          <div class="status-bar"><span class="status-value" :style="floodBar"></span></div>
         </div>
       </div>
        <div class="build-container">
@@ -36,6 +37,22 @@
           </div>
         <div class="card-col-med duration">{{listedGrade}}</div>
         <div class="card-col-med current-build">{{listedLink}}</div> 
+      </div>
+      <div class="build-container">
+        <div class="card-col-sml status"><span class="build-status" data-build-status="success"></span></div>
+        <div class="card-col-lg name">Company Age</div>
+        <div class="card-col-med health"><span data-tooltip="The Company is more than 3 years old" data-tooltip-options="light"><span class="build-health" data-build-health="great"></span></span></div>
+        <div class="card-col-med duration">Longer incorporation time</div>
+        <div class="card-col-med current-build">No Impact<i class="fa fa-check check-style" aria-hidden="true"></i></div>
+      </div>
+      <div class="build-container">
+        <div class="card-col-sml status"><span class="build-status" data-build-status="pending"></span></div>
+        <div class="card-col-lg name">Company Activity</div>
+        <div class="card-col-med health">Company has a lot of major changes</div>
+        <div class="card-col-med duration">Less major filings at company house</div>
+        <div class="card-col-med">
+          <div class="status-bar"><span class="status-value" style="width: 60.993%;"></span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -49,7 +66,8 @@ export default {
     ...mapState([
       'address',
       'buildingAge',
-      'listed'
+      'listed',
+      'floodData',
     ]),
     listedStatus(){
       return this.listed.isListed ? "success" : "failed";
@@ -60,6 +78,65 @@ export default {
     listedLink(){
       return this.listed.isListed ? this.listed.link : "";
     },
+    floodDataStatus(){
+      // {VeryLow: 1659, Low: 1198, Medium: 1226, High: 1258}
+      console.log("Flood Status", this.floodData)
+      if(this.floodData.VeryLow === -1){
+          return "pending"
+      }
+
+
+      if (this.floodData.VeryLow <= this.floodData.High &&  this.floodData.VeryLow <= this.floodData.Medium){
+        return "success"
+      }else{
+        if(this.floodData.Medium <= this.floodData.High){
+          return "pending"
+        }else{
+
+          return "failed"
+        }
+      }
+    },
+    floodText(){
+      if(this.floodData.VeryLow === -1){
+        return "No Data"
+      }
+
+      if (this.floodData.VeryLow <= this.floodData.High &&  this.floodData.VeryLow <= this.floodData.Medium){
+        return "Low"
+      }else{
+        if(this.floodData.Medium <= this.floodData.High){
+          return "Medium"
+        }else{
+
+          return "High"
+        }
+      }
+    },
+    floodBar(){
+      let dist = 100;
+      if (this.floodData.VeryLow <= this.floodData.High &&  this.floodData.VeryLow <= this.floodData.Medium){
+        dist = this.floodData.VeryLow / (this.floodData.High + this.floodData.Medium)  * 100
+        return `width: ${dist};`
+      }else{
+        if(this.floodData.Medium <= this.floodData.High){
+          
+          dist = this.floodData.Medium / (this.floodData.High)  * 100
+        }
+      }
+
+      if(this.floodData.VeryLow === -1){
+          dist =0;
+      }
+      return `width: ${dist}%;`
+    },
+    floodDesc(){
+      if(this.floodData.VeryLow === -1){
+        return "No Data"
+      }
+
+      return `High Risk Area ${this.floodData.High}m away`;
+    }
   }
 }
 </script>
