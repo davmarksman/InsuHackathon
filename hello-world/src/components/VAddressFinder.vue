@@ -1,30 +1,36 @@
 <template>
-  <div class="container">
-    <div class="form-group">
-      <label for="postcode">Postcode</label>
-      <input v-model="postcode" type="text" @blur="findAddresses()" />
+  <div>
+    <div class="container-sm">
+      <div class="form-group mb-3 mt-4">
+        <label for="postcode" class="mb-2 ps-1">Postcode</label>
+        <input class="form-control" v-model="postcode" type="text" @blur="findAddresses()" />
+      </div>
+  
+      <div class="form-group mb-3">
+    
+        <label for="address" class="mb-2 ps-1">Addresses</label>
+        <select
+          class="form-control"
+          name="addresses"
+          id=""
+          v-model="selectedAddress"
+          @change="setSelected($event, $event.target.selectedIndex)"
+        >
+          <option v-for="(address, index) in addresses" v-bind:key="index">
+            {{ address.summaryline }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group mb-3">
+        <label for="company-number" class="mb-2 ps-1">Company Reference Number</label>
+        <input class="form-control mb-3" type="text" v-model="companyRegistrationNumber">
+      </div>
+      <div class="row mx-0">
+        <button class="btn btn-primary px-0" @click="investigate">Investigate</button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="address">Addresses</label>
-      <select
-        name="addresses"
-        id=""
-        v-model="selectedAddress"
-        @change="setSelected($event, $event.target.selectedIndex)"
-      >
-        <option v-for="(address, index) in addresses" v-bind:key="index">
-          {{ address.summaryline }}
-        </option>
-      </select>
-    </div>
-    <div>
-      <label for="company-number">Company Reference Number</label>
-      <input type="text" v-model="companyRegistrationNumber">
-    </div>
-    <div class="row">
-      <button class="btn btn-primary" @click="investigate">Investigate</button>
-    </div>
+
     <div class="row">
       <result-page v-if= "showResultsPage"></result-page>
     </div>
